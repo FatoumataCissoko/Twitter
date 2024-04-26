@@ -1,0 +1,12 @@
+extends ../layout.pug
+
+block content
+  div(class="container")
+    h1(class="text-center") Modifier Tweet
+
+    form(class="mb-3", method="post", action=`/tweets/edit/${tweet._id}`)
+      div(class="form-group") 
+      h3 Contenu du Tweet
+        input(type="text", class="form-control", name="contenu", value=tweet.contenu)
+      div(class="w-100")
+        input(type="submit", value="Modifier le tweet", class="btn btn-primary btn-tweet mr-3")

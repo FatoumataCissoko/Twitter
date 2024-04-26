@@ -1,0 +1,18 @@
+extends  ../layout.pug
+
+block content 
+    h1(class="h1 mb-12 font-weight-normal d-flex justify-content-center") Liste des Tweets
+    div(class="d-flex flex-row content mx-auto")
+        div(class="profile-container ") 
+            include ../includes/profile.pug
+        div(class="flex-fill d-flex flex-column")
+            if tweets
+                each tweet in tweets 
+                    div(class="card tweet-element") 
+                        div(class="card-body")= tweet.contenu 
+                            a(href=`/tweets/delete/${tweet._id}`)     
+                                input(type="submit", value="Supprimer" class="btn btn-outline-danger" style="float: right")
+                            a(href=`/tweets/edit/${tweet._id}`) 
+                                input(type="submit", value="Modifier" class="btn btn-outline-secondary" style="float: right")
+                                
+        
